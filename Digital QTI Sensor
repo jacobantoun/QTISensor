@@ -1,13 +1,12 @@
 //Jacob Antoun
 //10/23/2013
 
-#define led 8
+#define led 8 //I ended up not using the LED, I planned on having it light up when it was over a black line.
 #define lineSensor 5
 
 void setup() {
   Serial.begin(9600); //start the serial monitor so we can view the output
-  pinMode(led, OUTPUT); //I'll be using the LED as an indicator for
-  //black or white
+  pinMode(led, OUTPUT); 
 }
 
 void loop() {
