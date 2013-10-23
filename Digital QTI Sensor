@@ -1,0 +1,31 @@
+//Jacob Antoun
+//10/23/2013
+
+#define led 8
+#define lineSensor 5
+
+void setup() {
+  Serial.begin(9600); //start the serial monitor so we can view the output
+  pinMode(led, OUTPUT); //I'll be using the LED as an indicator for
+  //black or white
+}
+
+void loop() {
+  Serial.println(RCTime(lineSensor));
+  delay(100);
+}
+
+long RCTime(int sensorIn) {
+  long duration = 0;
+  pinMode(sensorIn, OUTPUT); // Sets pin as OUTPUT
+  digitalWrite(sensorIn, HIGH); // Pin HIGH
+  delay(1); // Waits for 1 millisecond
+  pinMode(sensorIn, INPUT); // Sets pin as INPUT
+  digitalWrite(sensorIn, LOW); // Pin LOW
+
+  while(digitalRead(sensorIn)) { // Waits for the pin to go LOW
+    duration++;
+}
+
+return duration; // Returns the duration of the pulse
+}
